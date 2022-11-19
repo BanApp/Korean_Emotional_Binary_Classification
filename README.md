@@ -1,5 +1,6 @@
 # Korean_Emotional_Binary_Classification
 ## 한국어 감정 이진분류(2022 패턴인식)<br>
+## KoBERT 와 Transforemrs 이용
 <br>
 59000개의 데이터로 학습, 9113개으 데이터로 평과결과 ACC: 0.898167, AUC Scroe: 0.955392 (2022/11/20)
 <br>
