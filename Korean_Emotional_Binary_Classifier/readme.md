@@ -18,3 +18,9 @@
 
 ### csv 형태로 된 데이터 셋의 경로(절대경로)를 입력받고 데이터셋을 읽고 판별. 결과를 실행 파일이 존재하는 폴더에 result.csv로 저장한다.<br>
 <img width="711" alt="스크린샷 2022-11-20 오후 6 41 48" src="https://user-images.githubusercontent.com/93313445/202895297-db51ccb0-6e4c-40d3-8cec-6312082eb54e.png">
+
+## 모델 평가
+
+### csv 형태로 된 데이터 셋의 경로(절대경로)를 입력받고 데이터셋을 읽고 판별 및 평가. 정확도, AUC SCORE을 출력하고 ROC CURVE를 실행 파일이 존재하는 폴더에 plot.png로 저장한다.<br>
+
+<img width="549" alt="스크린샷 2022-11-20 오후 6 50 35" src="https://user-images.githubusercontent.com/93313445/202895629-7efd4cbc-2fa1-4a02-9fd7-9f5a307edc60.png">
