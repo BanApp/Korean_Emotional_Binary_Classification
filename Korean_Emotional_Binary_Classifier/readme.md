@@ -15,3 +15,8 @@
 <img width="563" alt="스크린샷 2022-11-20 오후 6 38 31" src="https://user-images.githubusercontent.com/93313445/202895188-193341dc-a37d-4cf4-8a1d-b3ca4ecf6670.png">
 
 ## 파일처리
+
+csv 형태로 된 데이터 셋의 경로(절대경로)를 입력받고 데이터셋을 읽고 판별. 결과를 실행 파일이 존재하는 폴더에 result.csv로 저장한다.<br>
+<img width="711" alt="스크린샷 2022-11-20 오후 6 41 48" src="https://user-images.githubusercontent.com/93313445/202895297-db51ccb0-6e4c-40d3-8cec-6312082eb54e.png">
+
+## 
