@@ -129,9 +129,9 @@ def start(s,g,m):
 
     if m == 0:
         if a == 0:
-            ans = s + " 는(은) 부정문입니다."
+            ans = "\"" + s + "\"" + " 는(은) 부정문입니다."
         else:
-            ans = s + " 는(은) 긍정문입니다."
+            ans = "\"" + s + "\"" + " 는(은) 긍정문입니다."
 
         return ans
     elif m == 1:
@@ -143,7 +143,9 @@ def start(s,g,m):
 # 프론트엔드 GUI
 
 window = Tk()
-
+import tkinter.font
+font = tkinter.font.Font(size=21)
+f2 = tkinter.font.Font(size=150)
 window.title("Korean Emotional Binary Classification")
 window.geometry("480x600")
 window.resizable(False, False)
@@ -152,10 +154,10 @@ def device_mode(a):
     g[0],g[1] = model_call(a)
     model.to(g[0])
     print(g[1])
-    label_dname.configure(text="Device: " + g[1])
+    label_dname.configure(text="Device: " + g[1],font=font)
 
 label_dname = Label(window)
-label_dname.place(x=110, y=100, width=240)
+label_dname.place(x=30, y=100, width=400)
 
 f = [1]
 
@@ -166,27 +168,23 @@ def function_mode(a):
             r_ans = start(sentence, g[0],0)
             label3 = Label(window)
             label3.place(x=10, y=380)
-            label3.configure(text=str(r_ans))
+            label3.configure(text=str(r_ans),font=font,wraplength=450)
             e.delete(0, END)
 
         label1 = Label(window)
-        label1.configure(text="감정을 분류할 문장을 입력 하세요")
-        label1.place(x=115, y=250, width=240)
+        label1.configure(text="감정을 분류할 문장을 입력 하세요:",font=font)
+        label1.place(x=30, y=250, width=400)
 
         label2 = Label(window)
         label2.place(x=10, y=350)
-        label2.configure(text="                                               ")
+        label2.configure(text="                                                                               ")
 
         e = Entry(window, width=50)
         e.place(x=5, y=280)
         e.insert(0, '')
 
-        btn = Button(window, text="클릭", command=btncmd)
+        btn = Button(window, text="분류", command=btncmd)
         btn.place(x=200, y=330)
-
-        label3 = Label(window)
-        label3.place(x=10, y=380)
-        label3.configure(text="                                                                                                          ")
 
         label4 = Label(window)
         label4.place(x=10, y=430)
@@ -210,8 +208,8 @@ def function_mode(a):
             df.to_csv('./result.csv')
 
         label1 = Label(window)
-        label1.configure(text="분류할 csv 파일의 경로를 입력하세요")
-        label1.place(x=115, y=250, width=240)
+        label1.configure(text="분류할 csv 파일의 경로를 입력하세요:",font=font)
+        label1.place(x=30, y=250, width=400)
 
         label2 = Label(window)
         label2.place(x=10, y=350)
@@ -221,12 +219,12 @@ def function_mode(a):
         e.place(x=5, y=280)
         e.insert(0, '')
 
-        btn = Button(window, text="클릭", command=btncmd)
+        btn = Button(window, text="분류", command=btncmd)
         btn.place(x=200, y=330)
 
         label3 = Label(window)
         label3.place(x=10, y=380)
-        label3.configure(text="                                                                                       ")
+        label3.configure(text="                                                                              ",font=f2)
 
         label4 = Label(window)
         label4.place(x=10, y=430)
@@ -282,7 +280,7 @@ def function_mode(a):
                 if test_ans[i] == labels[i]:
                     cnt += 1
             auc_score = roc_auc_score(labels, t_prob)
-            label3.configure(text="정확도(ACC): " + str(round(cnt/len(test_ans), 6)))
+            label3.configure(text="정확도(ACC): " + str(round(cnt/len(test_ans), 6)),font=tkinter.font.Font(size=16))
             label4 = Label(window)
             label4.place(x=10, y=430)
             label4.configure(text="AUC Score: " + str(round(auc_score, 6)))
@@ -303,23 +301,23 @@ def function_mode(a):
             label5.configure(text="플롯 저장 완료(./plot.png)")
 
         label1 = Label(window)
-        label1.configure(text="모델 평가 데이터(csv)의 경로를 입력하세요")
-        label1.place(x=115, y=250, width=240)
+        label1.configure(text="모델 평가 데이터(csv)의 경로를 입력하세요:",font=font)
+        label1.place(x=30, y=250, width=400)
 
         label3 = Label(window)
         label3.place(x=10, y=380)
-        label3.configure(text="                                                                    ")
+        label3.configure(text="                                 ",font=f2)
 
         e = Entry(window, width=50)
         e.place(x=5, y=280)
         e.insert(0, '')
 
-        btn = Button(window, text="클릭", command=btncmd)
+        btn = Button(window, text="평가", command=btncmd)
         btn.place(x=200, y=330)
 
 
 label_s2 = Label(window)
-label_s2.configure(text="사용할 Device를 고르세요")
+label_s2.configure(text="사용할 Device를 고르세요",font=font)
 
 btn1 = Button(window, text="MPS(APPLE SILICON)", command=lambda: device_mode(0))
 btn2 = Button(window, text="CUDA(NVIDIA)", command=lambda: device_mode(1))
