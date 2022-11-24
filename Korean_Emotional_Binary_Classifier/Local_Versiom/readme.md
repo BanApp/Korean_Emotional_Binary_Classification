@@ -1,5 +1,5 @@
 # 한국어 긍정, 부정 이진 분류기
-## 모델파일(P_OR_N_MODEL)과 실행파일(main.py)이 같은폴더에 존재해야함.
+## 모델파일(P_OR_N_MODEL)과 실행파일(Kor_Emo_Classifier(local).py)이 같은폴더에 존재해야함.
 
 
 <img width="770" alt="스크린샷 2022-11-20 오후 6 36 01" src="https://user-images.githubusercontent.com/93313445/202895114-89c168df-f680-421c-9658-847d82025382.png">
